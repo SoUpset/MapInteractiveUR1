@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>
+            Carte UR1 Interactive
+        </title>
+        <link rel="stylesheet" type = "text/css" href="style.css" media="screen" />
+        <script src='https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.js'></script>
+        <link href='https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.css' rel='stylesheet' />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="toggle-container">
+            <input type="checkbox" id="toggle" name="toggle"/><label for="toggle">Changer le thème !</label>
+        </div>
+        <button class="buttonLinks" id="btn">☰</button>
+        <nav id="nav">
+            <ul>
+            <li><a href="https://www.univ-rennes1.fr/" target="_blank">Université de Rennes 1</a></li>
+            <li><a href="https://www.ign.fr/" target="_blank">IGN</a></li>
+            <li><a href="https://discord.gg/dAZ5E7TV" target="_blank">Discord</a></li>
+            </ul>
+        </nav>
+        <button class="button2D" id="2D">2D</button>
+        <button class="button3D" id="3D">3D</button>
+            <div id="container"></div>
+        <h1>
+            Tema la taille du rat 🐀👈
+        </h1>
+        <h2>
+            <iframe width="768" height="576" src="https://maphub.net/embed/161002?panel=1&panel_closed=1" frameborder="0"></iframe>
+        </h2>
+        <div id='map' style='width: 400px; height: 300px;'></div>
+        <script>
+        var map = new maplibregl.Map({
+        container: 'map',
+        style: 'https://api.maptiler.com/maps/b6c6f18c-5c9c-47b8-b926-937f58feeaf9/style.json?key=87BG911Quo0qumNecaGP', 
+        center: [-1.63, 48.11], 
+        zoom: 9 
+        });
+        </script>
+    </body>
+</html>
