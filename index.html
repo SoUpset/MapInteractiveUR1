@@ -43,6 +43,12 @@
             style : 'mapbox://styles/vbn-gvhuhv-qerlnhqeik/cky475ncb2qat15nu5dhe5zhc'
             //style: 'mapbox://styles/mapbox/streets-v11'
         });
+
+        // disable map rotation using right click + drag
+        map.dragRotate.disable();
+ 
+        // disable map rotation using touch rotation gesture
+        map.touchZoomRotate.disableRotation();
         
         const geojson = {
   type: 'FeatureCollection',
