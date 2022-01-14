@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <title>
+        Carte UR1 Interactive
+    </title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="toggle-container">
+        <input type="checkbox" id="toggle" name="toggle" /><label for="toggle">Changer le thème !</label>
+    </div>
+    <button class="buttonLinks" id="btn">☰</button>
+    <nav id="nav">
+        <ul>
+            <li><a href="https://www.univ-rennes1.fr/" target="_blank">Université de Rennes 1</a></li>
+            <li><a href="https://www.ign.fr/" target="_blank">IGN</a></li>
+            <li><a href="https://discord.gg/dAZ5E7TV" target="_blank">Discord</a></li>
+        </ul>
+    </nav>
+    <button class="button2D" id="2D">2D</button>
+    <button class="button3D" id="3D">3D</button>
+    <div id="container"></div>
+    <h1>
+        === BEAULIEU ===
+    </h1>
+    <div id='map' style='width: 400px; height: 300px;'></div>
+    <pre id="info"></pre>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoidmJuLWd2aHVodi1xZXJsbmhxZWlrIiwiYSI6ImNrdzY0ZDRvcjA1ZHczM3MyN3c3MmZ5aDkifQ.mxDBDY2xtHTTXpPrnyCHvQ';
+        const map = new mapboxgl.Map({
+            center: [-1.6364151881843991, 48.118105356676736],
+            zoom: 18,
+            minZoom: 14,
+            maxZoom: 18,
+            pitch: 60, // en degrés 
+            bearing: -60, // en degrés
+            container: 'map',
+            style : 'mapbox://styles/vbn-gvhuhv-qerlnhqeik/cky475ncb2qat15nu5dhe5zhc'
+            //style: 'mapbox://styles/mapbox/streets-v11'
+        });
+        
+        const geojson = {
+  type: 'FeatureCollection',
+  features: [
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-1.6364151881843991, 48.118105356676736]
+      },
+      properties: {
+        title: 'DON DU SANG',
+        description: 'ESIR'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-1.635005, 48.118632]
+      },
+      properties: {
+        title: 'DON DU SANG',
+        description: 'RU'
+      }
+    }
+  ]
+};
+
+function sourceRefresh() {
+    // On ajoute le marker à la map
+for (const feature of geojson.features) {
+    // On crée l'élement html pour toutes les features
+    const el = document.createElement('div');
+    el.className = 'marker';
+    // et on les ajoute à la map
+    new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
+    new mapboxgl.Marker(el)
+    .setLngLat(feature.geometry.coordinates)
+    .setPopup(
+    // Ajout du popup
+    new mapboxgl.Popup({ offset: 25 }) 
+    .setHTML(
+    `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+    )
+    )
+    .addTo(map);
+}
+}
+
+map.on('click', (e) => {
+document.getElementById('info').innerHTML =
+//  Coordonées x y de la position de la souris lors de l'event click de souris
+JSON.stringify(e.point) +
+'<br />' +
+// Position en terme de latitude et longitude de l'event
+JSON.stringify(e.lngLat.wrap());
+
+// Ajout de la donnée d'un lieu dans le geojson
+feature = {}
+feature['type'] = 'Feature'
+feature['geometry'] = {'type': 'Point',
+                    'coordinates': e.lngLat,
+                    }
+feature['properties'] =  {'title': 'osef', 'description' : 'UN LIEU INCROYABLE'}
+geojson['features'].push(feature)
+console.log(geojson['features'])
+sourceRefresh();
+});
+</script>
+</body>
+
+</html>
