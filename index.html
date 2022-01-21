@@ -78,15 +78,16 @@
   ]
 };
 
+var currentMarkers=[];
 function sourceRefresh() {
+  currentMarkers
     // On ajoute le marker à la map
 for (const feature of geojson.features) {
     // On crée l'élement html pour toutes les features
     const el = document.createElement('div');
     el.className = 'marker';
     // et on les ajoute à la map
-    new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
-    new mapboxgl.Marker(el)
+    var m = new mapboxgl.Marker(el)
     .setLngLat(feature.geometry.coordinates)
     .setPopup(
     // Ajout du popup
@@ -96,7 +97,14 @@ for (const feature of geojson.features) {
     )
     )
     .addTo(map);
+  currentMarkers.push(m)
+  }
 }
+
+function empty() {
+  removeAllMarkers(currentMarkers)
+  currentMarkers=[]
+  geojson.features = []
 }
 
 map.on('click', (e) => {
@@ -115,8 +123,8 @@ feature['geometry'] = {'type': 'Point',
                     }
 feature['properties'] =  {'title': 'osef', 'description' : 'UN LIEU INCROYABLE'}
 geojson['features'].push(feature)
-console.log(geojson['features'])
 sourceRefresh();
+console.log(geojson['features'])
 });
 </script>
 </body>

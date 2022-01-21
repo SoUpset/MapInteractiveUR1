@@ -34,3 +34,9 @@ btn.addEventListener("click", () => {
     nav.classList.toggle('active');
     btn.classList.toggle('active');
 });
+
+function removeAllMarkers(list) {
+    for (var i = currentMarkers.length-1;i>=0;i--) {
+        list[i].remove()
+    }
+}
