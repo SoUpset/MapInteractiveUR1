@@ -143,16 +143,6 @@ body {
     transform: translateX(calc(70px*4));
 }
 
-.buttonLinks {
-    background-color: rebeccapurple;
-    border: none;
-    color: white;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 1rem;
-}
-
 button.active {
     transform: translateX(-190px);
 }

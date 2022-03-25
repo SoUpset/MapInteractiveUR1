@@ -90,6 +90,19 @@ map.on('click', (e) => {
     console.log(geojson['features'])
 });
 
+// Géolocalisation
+map.addControl(
+    new mapboxgl.GeolocateControl({
+    positionOptions: {
+    enableHighAccuracy: true
+    },
+    // Update
+    trackUserLocation: true,
+    // Visuel
+    showUserHeading: true
+    })
+    );
+
 var currentMarkers = [];
 function sourceRefresh() {
     currentMarkers
