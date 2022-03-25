@@ -8,47 +8,95 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
     <script src="script.js" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
-    <div class="toggle-container">
-        <input type="checkbox" id="toggle" name="toggle" /><label for="toggle">Changer le thème !</label>
-    </div>
-    <button class="buttonLinks" id="btn">☰</button>
-    <nav id="nav">
-        <ul>
-            <li><a href="https://www.univ-rennes1.fr/" target="_blank">Université de Rennes 1</a></li>
-            <li><a href="https://www.ign.fr/" target="_blank">IGN</a></li>
-            <li><a href="https://discord.gg/dAZ5E7TV" target="_blank">Discord</a></li>
-        </ul>
-    </nav>
-    <button class="button2D" id="2D">2D</button>
-    <button class="button3D" id="3D">3D</button>
-    <div id="container"></div>
-    <h1>
-        === BEAULIEU ===
-    </h1>
-    <div id='map' style='width: 400px; height: 300px;'></div>
-    <pre id="info"></pre>
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoidmJuLWd2aHVodi1xZXJsbmhxZWlrIiwiYSI6ImNrdzY0ZDRvcjA1ZHczM3MyN3c3MmZ5aDkifQ.mxDBDY2xtHTTXpPrnyCHvQ';
-        const map = new mapboxgl.Map({
-            center: [-1.6364151881843991, 48.118105356676736],
-            zoom: 18,
-            minZoom: 14,
-            maxZoom: 18,
-            pitch: 60, // en degrés 
-            bearing: -60, // en degrés
-            container: 'map',
-            style : 'mapbox://styles/vbn-gvhuhv-qerlnhqeik/cky475ncb2qat15nu5dhe5zhc'
-            //style: 'mapbox://styles/mapbox/streets-v11'
-        });
+  <div class="toggle-container">
+    <input type="checkbox" id="toggle" name="toggle" /><label for="toggle">Changer le thème !</label>
+</div>
+<button class="buttonLinks" id="btn">☰</button>
+<button class="button2D" id="2D">2D</button>
+<button class="button3D" id="3D">3D</button>
+<div id="container"></div>
+<div id='map' style='width: 400px; height: 300px;'></div>
+<pre id="info"></pre>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoidmJuLWd2aHVodi1xZXJsbmhxZWlrIiwiYSI6ImNrdzY0ZDRvcjA1ZHczM3MyN3c3MmZ5aDkifQ.mxDBDY2xtHTTXpPrnyCHvQ';
+    const map = new mapboxgl.Map({
+        center: [-1.6364151881843991, 48.118105356676736],
+        zoom: 18,
+        minZoom: 14,
+        maxZoom: 18,
+        pitch: 60, // en degrés 
+        bearing: -60, // en degrés
+        container: 'map',
+        style : 'mapbox://styles/vbn-gvhuhv-qerlnhqeik/cky475ncb2qat15nu5dhe5zhc'
+        //style: 'mapbox://styles/mapbox/streets-v11'
+    });
 
-        // disable map rotation using right click + drag
-        map.dragRotate.disable();
- 
-        // disable map rotation using touch rotation gesture
-        map.touchZoomRotate.disableRotation();
+    // disable map rotation using right click + drag
+    map.dragRotate.disable();
+
+    // disable map rotation using touch rotation gesture
+    map.touchZoomRotate.disableRotation();
+</script>
+<div class="nav">
+  <ul>
+      <li class="list active">
+        <a href="#">
+          <span class="icon">
+            <ion-icon name="home-outline"></ion-icon>
+          </span>
+          <span class="text">Home</span>
+        </a>
+      </li>
+      <li class="list">
+        <a href="#">
+          <span class="icon">
+            <ion-icon name="flag-outline"></ion-icon>
+          </span>
+          <span class="text">Point d'intérêt</span>
+        </a>
+      </li>
+      <li class="list">
+        <a href="#">
+          <span class="icon">
+            <ion-icon name="search-circle-outline"></ion-icon>
+          </span>
+          <span class="text">Rechercher</span>
+        </a>
+      </li>
+      <li class="list">
+        <a href="#">
+          <span class="icon">
+            <ion-icon name="book-outline"></ion-icon>
+          </span>
+          <span class="text">À propos</span>
+        </a>
+      </li>
+      <li class="list">
+        <a href="#">
+          <span class="icon">
+            <ion-icon name="megaphone-outline"></ion-icon>
+          </span>
+          <span class="text">Support</span>
+        </a>
+      </li>
+    <div class="indicator"></div>
+  </ul>
+</div>
+
+<script>
+  const list = document.querySelectorAll('.list');
+  function activeLink() {
+    list.forEach((item) =>
+    item.classList.remove('active'));
+    this.classList.add('active');
+  }
+  list.forEach((item) =>
+  item.addEventListener('click', activeLink));
 </script>
 </body>
 
