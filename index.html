@@ -52,7 +52,7 @@
         </a>
       </li>
       <li class="list">
-        <a href="#">
+        <a href="#" target =_self onClick="pop()">
           <span class="icon">
             <ion-icon name="flag-outline"></ion-icon>
           </span>
@@ -76,7 +76,7 @@
         </a>
       </li>
       <li class="list">
-        <a href="#">
+        <a href="#" onclick="openForm()">
           <span class="icon">
             <ion-icon name="megaphone-outline"></ion-icon>
           </span>
@@ -85,6 +85,21 @@
       </li>
     <div class="indicator"></div>
   </ul>
+</div>
+
+<div class="form-popup" id="contact-support">
+  <form action="https://formsubmit.co/marius.lledouarin@hotmail.fr" method="POST" class="form-container">
+    <h1>Contact du support</h1>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Entrez votre adresse mail" name="email" oninvalid="email.setCustomValidity('Obligatoire !');" required>
+
+    <label for="msg"><b>Message</b></label>
+    <input type="text" placeholder="Renseignez le problème à signaler" name="msg" oninvalid="msg.setCustomValidity('Obligatoire !');" required>
+
+    <button type="submit" class="button">Envoyer</button>
+    <button type="button" class="button" onclick="closeForm()">Fermer</button>
+  </form>
 </div>
 
 <script>

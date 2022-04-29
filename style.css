@@ -192,4 +192,68 @@ body.dark {
     cursor: pointer;
   }
 
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    border-radius: 30px;
+  }
+
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: #222327;
+    border-radius: 30px;
+    color: #29fd53;
+  }
+
+  .form-container input[type=text] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 30px;
+  }
+
+  .form-container input[type=text]:focus {
+    background-color: #ddd;
+    outline: none;  
+  }
+
+  .form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  .form-container .button {
+    background-color: #29fd53;
+    font-family: inherit;
+    border-radius: 30px;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+
+  /*Permet d'ajouter d'illuminer le bouton quand il est hovered*/
+  .form-container .button:hover, .open-button:hover {
+    opacity: 1;
+  }
+  
+  .form-container h1 {
+    text-align: center;
+  }
+
+ 
+
 

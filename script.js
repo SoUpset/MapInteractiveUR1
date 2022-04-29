@@ -131,3 +131,12 @@ function empty() {
     currentMarkers = []
     geojson.features = []
 }
+function pop() { window.open('https://ent.univ-rennes1.fr/f/bureau/normal/render.uP#/','pop',"height=590,width=450,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=auto,resizable=yes,copyhistory=no"); }
+
+function openForm() {
+    document.getElementById("contact-support").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("contact-support").style.display = "none";
+  }
