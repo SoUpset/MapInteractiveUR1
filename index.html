@@ -41,6 +41,17 @@
     // disable map rotation using touch rotation gesture
     map.touchZoomRotate.disableRotation();
 </script>
+
+<div class="overlay">
+	<div id="popup" class="popup">
+		<h2>Apprends à nous connaître &#128526</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+			Tu vas être redirigé vers une page de présentation de notre projet !
+		</div>
+	</div>
+</div>
+
 <div class="nav">
   <ul>
       <li class="list active">
@@ -67,13 +78,13 @@
           <span class="text">Rechercher</span>
         </a>
       </li>
-      <li class="list">
-        <a href="whorwe.html">
-          <span class="icon">
-            <ion-icon name="book-outline"></ion-icon>
-          </span>
-          <span class="text">À propos</span>
-        </a>
+      <li class="list" id = "blabla">
+          <a href="whorwe.html" onmouseover="knowus('over')" onmouseout="knowus('notover')">
+            <span class="icon">
+              <ion-icon name="book-outline"></ion-icon>
+            </span>
+            <span class="text">À propos</span>
+          </a>
       </li>
       <li class="list">
         <a href="#" onclick="openForm()">

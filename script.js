@@ -30,11 +30,6 @@ function createNotification(dimension) {
     }, 3000);
 }
 
-btn.addEventListener("click", () => {
-    nav.classList.toggle('active');
-    btn.classList.toggle('active');
-});
-
 function removeAllMarkers(list) {
     for (var i = currentMarkers.length - 1; i >= 0; i--) {
         list[i].remove()
@@ -140,3 +135,14 @@ function openForm() {
   function closeForm() {
     document.getElementById("contact-support").style.display = "none";
   }
+
+  function knowus(x) {
+    local_element=document.getElementById('popup');
+    if (x == 'over') {
+        local_element.style.display="block";
+    } else {
+        local_element.style.display="none";
+    }
+}
+
+  

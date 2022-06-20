@@ -254,6 +254,54 @@ body.dark {
     text-align: center;
   }
 
+/*
+  #id => pour accéder précisément à l'id de blabla
+*/
+  .hide {
+    display: none;
+    color:red;
+  }
+
+  .popup {
+    display: none;
+    margin: 70px auto;
+    padding: 20px;
+    background: #222327;
+    color: #29fd53;
+    border-radius: 30px;
+    border: 3px solid #f1f1f1;
+    width: 30%;
+    position: relative;
+    top:90px;right:20px;
+    transition: all 5s ease-in-out;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: white;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .popup .close:hover {
+    color: #06D85F;
+  }
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+  
+
+  
+
  
 
 
